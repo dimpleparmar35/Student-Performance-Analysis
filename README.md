@@ -5,33 +5,55 @@ This project uses data analytics and machine learning to predict student `GradeC
 identify at-risk students early, and provide actionable recommendations for educators.
 
 ## Dataset
-- Source: [Kaggle — Students Performance Dataset](https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset)
-- File included: `Student_performance_data _.csv` (2,392 students, 15 features)
+- Source: [Kaggle — Student Performance Dataset](https://www.kaggle.com/datasets/miadul/student-performance-dataset)
+- Author: Arif Miah
+- File included: `Student_performance_data _.csv` (5,000 students, 15 features)
+- License: CC BY-SA 4.0
 - The pipeline automatically copies it into the `dataset/` folder on first run.
+
+### Dataset Features
+| Feature | Description | Values |
+|---------|-------------|--------|
+| `StudentID` | Unique identifier | 1001–6000 |
+| `Age` | Student's age | 15–18 |
+| `Gender` | Gender | 0=Male, 1=Female |
+| `Ethnicity` | Ethnicity category | 0=Caucasian, 1=African American, 2=Asian, 3=Other |
+| `ParentalEducation` | Education level of parents | 0=None, 1=High School, 2=Some College, 3=Bachelor's, 4=Higher |
+| `StudyTimeWeekly` | Weekly study time (hours) | 0–20 |
+| `Absences` | Number of absences | 0–30 |
+| `Tutoring` | Receives tutoring | 0=No, 1=Yes |
+| `ParentalSupport` | Level of parental support | 0=None, 1=Low, 2=Moderate, 3=High, 4=Very High |
+| `Extracurricular` | Extracurricular activities | 0=No, 1=Yes |
+| `Sports` | Sports participation | 0=No, 1=Yes |
+| `Music` | Music participation | 0=No, 1=Yes |
+| `Volunteering` | Volunteering | 0=No, 1=Yes |
+| `GPA` | Grade Point Average | 0.0–4.0 |
+| `GradeClass` | **Target** — Grade classification | 0=A, 1=B, 2=C, 3=D, 4=F |
 
 ## Project Structure
 ```
 Student-Performance-Analysis/
-├── Student_performance_data _.csv        ← original raw dataset
-├── dataset/                              ← processed data files (auto-created)
+├── Student_performance_data _.csv        <- original raw dataset (5,000 records)
+├── dataset/                              <- processed data files (auto-created)
 │   ├── student_performance.csv
 │   ├── student_performance_cleaned.csv
 │   ├── student_performance_engineered.csv
 │   ├── train.csv
 │   └── test.csv
 ├── src/
-│   ├── step1_problem_analysis.py         ← Member 1: problem scope & data collection
-│   ├── step3_preprocessing.py            ← Member 1: cleaning & missing values
-│   └── step5_feature_engineering.py      ← Member 1: RiskScore, AttendanceRate, etc.
+│   ├── step1_problem_analysis.py         <- Member 1: problem scope & data collection
+│   ├── step3_preprocessing.py            <- Member 1: cleaning & missing values
+│   └── step5_feature_engineering.py      <- Member 1: RiskScore, AttendanceRate, etc.
 ├── notebooks/
-│   └── Exploratory_and_Statistical_data_analysis.ipynb   ← Member 2: EDA
+│   └── Exploratory_and_Statistical_data_analysis.ipynb   <- Member 2: EDA
 ├── models/
-│   └── ML_Grade_Prediction_G_Revanth_Reddy               ← Member 3: ML model
+│   └── ML_Grade_Prediction_G_Revanth_Reddy               <- Member 3: ML model
 ├── dashboard/
-│   └── DATA ANALTICS DASHBOARD.twb                       ← Member 2: Tableau dashboard
+│   └── DATA ANALTICS DASHBOARD.twb                       <- Member 2: Tableau dashboard
 ├── reports/
-│   └── Insights (data analysis).pages                    ← Member 2: insights report
-├── run_member1.py                        ← ▶ run all Member 1 tasks
+│   └── Insights (data analysis).pages                    <- Member 2: insights report
+├── generate_dataset.py                   <- dataset generation script
+├── run_member1.py                        <- run all Member 1 tasks
 └── README.md
 ```
 
@@ -65,14 +87,17 @@ That's it. The script handles everything automatically.
 | `ActivityScore` | Sum of 4 extracurricular activities | 0 – 4 |
 | `SupportScore` | Weighted parental + tutoring support | 0 – 4.4 |
 | `RiskScore` | Composite at-risk score | 0 – 100 |
-| `IsAtRisk` | Binary flag (RiskScore ≥ 50) | 0 or 1 |
+| `IsAtRisk` | Binary flag (RiskScore >= 50) | 0 or 1 |
 | `GPAGroup` | GPA binned (Poor / Average / Good / Excellent) | 0 – 3 |
 
 ## Dataset Summary
-- Total students: **2,392**
-- At-risk students (RiskScore ≥ 50): **420 (17.6%)**
-- Average GPA: **1.91**
-- Students with GPA < 2.0: **1,274**
+- Total students: **5,000**
+- Average GPA: **2.90**
+- Grade A students: **707 (14.1%)**
+- Grade B students: **1,496 (29.9%)**
+- Grade C students: **1,631 (32.6%)**
+- Grade D students: **913 (18.3%)**
+- Grade F students (at-risk): **253 (5.1%)**
 
 ## Team
 

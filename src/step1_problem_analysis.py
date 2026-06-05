@@ -11,7 +11,7 @@ import numpy as np
 
 # ── Project Configuration ──────────────────────────────
 PROJECT_NAME = "Student Performance Analysis and Grade Prediction"
-DATASET_URL  = "https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset"
+DATASET_URL  = "https://www.kaggle.com/datasets/miadul/student-performance-dataset"
 DATASET_FILE = "dataset/student_performance.csv"
 
 # Expected columns in the Kaggle dataset
