@@ -80,7 +80,7 @@ That's it. The script handles everything automatically.
 |--------|-----------------|
 | **Member 1** | Problem analysis, data collection, cleaning, preprocessing, feature engineering, GitHub |
 | Member 2 | EDA, statistics, visualization, Tableau dashboard, documentation |
-| Member 3 | ML model development, training/testing, grade prediction, final presentation |
+| Member 3/4 | ML model development, training/testing, grade prediction, final presentation |
 
 ## Technologies
 Python · Pandas · NumPy · Scikit-learn · Tableau · Jupyter · GitHub
